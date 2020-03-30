@@ -42,4 +42,18 @@ shared_memory -> fib_sequence[i] = shared_memory -> fib_sequence[i-1] + shared_m
 printf("Child Fib Sequence:\n");
 printf("%dl\n",shared_memory->fib_sequence[i]);
 }
+}else{
+wait();
+int j;
+printf("Parent Fib Sequence:\n");
+for(j=0;j<shared_memory->sequence_size;j++){
+printf("%dl\n",shared_memory->fib_sequence[j]);
+}
+shmdt(shared_memory);
+shmctl(segment_id,IPC_RMID,NULL);
+
+}
+}
+return 0;
+}
 
