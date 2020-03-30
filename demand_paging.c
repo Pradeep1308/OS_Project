@@ -34,3 +34,22 @@ RPNM=c*RPNM;
 printf("Enter the value of Service Page Fault (SPF) in millisecond:\n");
 scanf("%lf",&SPF);
 SPF=mstons(SPF);
+d=1-c;
+SPF=d*SPF;
+
+printf("Enter the value of Memory Access Time(MAT) in nanosecond:\n");
+scanf("%lf",&MAT);
+
+printf("Enter the value of Effective Address Time(EAT) in nanosecond:\n");
+scanf("%lf",&EAT);
+if(EAT>200)
+{
+printf("OOPS!!!\nValue of Effective Access Time is More Than 200\nTry Again\n");
+}
+else{
+p=(EAT-MAT)/(RPNM+SPF-MAT);
+p=p*100;
+printf("%lf%\n",p);
+return 0;
+}
+}
