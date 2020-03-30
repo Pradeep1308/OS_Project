@@ -25,3 +25,13 @@ shared_memory = (shared_data*) shmat (segment_id, NULL, 0);
 
 printf("Please enter a number:\n");
 scanf(" %d", &ii);
+  /*Checks to see if a negative value is entered*/
+if(ii < 0){
+printf("Must be non-negative try again...\n");
+
+}else{
+pid = fork();
+shared_memory-> sequence_size = ii;
+shared_memory -> fib_sequence[0]= a;
+shared_memory -> fib_sequence[1]= b;
+
