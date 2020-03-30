@@ -34,4 +34,12 @@ pid = fork();
 shared_memory-> sequence_size = ii;
 shared_memory -> fib_sequence[0]= a;
 shared_memory -> fib_sequence[1]= b;
+if(pid==0){
+printf("%d %d\n",a,b);
+for(i=2;i<shared_memory -> sequence_size;i++)
+{
+shared_memory -> fib_sequence[i] = shared_memory -> fib_sequence[i-1] + shared_memory -> fib_sequence[i-2];
+printf("Child Fib Sequence:\n");
+printf("%dl\n",shared_memory->fib_sequence[i]);
+}
 
